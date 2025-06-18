@@ -1,3 +1,9 @@
+fetch("https://plagiarism-backend.onrender.com/semantic-similarity", {
+  method: "POST",
+  body: formData
+})
+
+
 function readFile(file) {
   return new Promise((resolve, reject) => {
     const name = file.name.toLowerCase();
