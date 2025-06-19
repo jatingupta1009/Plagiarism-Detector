@@ -1,9 +1,3 @@
-fetch("https://plagiarism-backend.onrender.com/semantic-similarity", {
-  method: "POST",
-  body: formData
-})
-
-
 function readFile(file) {
   return new Promise((resolve, reject) => {
     const name = file.name.toLowerCase();
@@ -165,8 +159,8 @@ document.getElementById("uploadForm").addEventListener("submit", async (e) => {
 
       const text = await readFile(f);
       const jaccard = jaccardSim(targetText, text);
-      const kmp = kmpSearch(targetText.slice(0, 50), text);
-      const lev = levenshtein(targetText.slice(0, 100), text.slice(0, 100));
+      const kmp = kmpSearch(targetText, text);
+      const lev = levenshtein(targetText, text);
       const shingleA = kShingling(targetText);
       const shingleB = kShingling(text);
       const common = new Set([...shingleA].filter(s => shingleB.has(s)));
